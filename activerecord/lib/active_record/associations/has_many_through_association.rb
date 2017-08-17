@@ -85,7 +85,7 @@ module ActiveRecord
 
         def save_through_record(record)
           association = build_through_record(record)
-          if association.changed?
+          if association.has_changes_to_save?
             association.save!
           end
         ensure
